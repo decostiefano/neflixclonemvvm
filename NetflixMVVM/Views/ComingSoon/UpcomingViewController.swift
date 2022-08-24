@@ -1,13 +1,13 @@
 //
-//  DownloadsViewController.swift
+//  UpcomingViewController.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 22/08/22.
+//  Created by Jerry Purnama Maulid on 24/08/22.
 //
 
 import UIKit
 
-class DownloadsViewController: UIViewController {
+class UpcomingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

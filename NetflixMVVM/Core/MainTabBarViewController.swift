@@ -12,7 +12,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let home = UINavigationController(rootViewController: ViewController()) // Home page
+        let home = UINavigationController(rootViewController: HomeViewController()) // Home page
         let coming = UINavigationController(rootViewController: ViewController())
         let search = UINavigationController(rootViewController: ViewController())
         let download = UINavigationController(rootViewController: ViewController())

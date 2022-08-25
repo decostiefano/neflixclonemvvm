@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeroHeaderUIView" customModule="NetflixMVVM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vNI-I4-kc0">
+                    <rect key="frame" x="20" y="336" width="374" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RM-iC-i2K">
+                            <rect key="frame" x="0.0" y="0.0" width="177" height="44"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Play">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPE-C2-dc5">
+                            <rect key="frame" x="197" y="0.0" width="177" height="44"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Download">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="cRj-I7-1Bg"/>
+                    </constraints>
+                </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y9w-Gl-uTx">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="y9w-Gl-uTx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4S3-6s-cBM"/>
+                <constraint firstItem="y9w-Gl-uTx" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="BBH-kZ-Gke"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNI-I4-kc0" secondAttribute="trailing" constant="20" id="Btb-Au-gNV"/>
+                <constraint firstItem="vNI-I4-kc0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Scy-9X-tu5"/>
+                <constraint firstItem="y9w-Gl-uTx" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="fGC-Ik-5Wy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vNI-I4-kc0" secondAttribute="bottom" constant="20" id="gyG-Vl-d5o"/>
+                <constraint firstItem="y9w-Gl-uTx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="s7X-jy-N9I"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="downloadButton" destination="oPE-C2-dc5" id="gV5-KY-w4i"/>
+                <outlet property="imageViewHeader" destination="y9w-Gl-uTx" id="DF7-yg-gcF"/>
+                <outlet property="playButton" destination="3RM-iC-i2K" id="SWr-Vk-Ckz"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="44.866071428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

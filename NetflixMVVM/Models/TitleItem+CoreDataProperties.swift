@@ -1,5 +1,5 @@
 //
-//  TItleItem+CoreDataProperties.swift
+//  TitleItem+CoreDataProperties.swift
 //  NetflixMVVM
 //
 //  Created by Jerry Purnama Maulid on 30/08/22.
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension TItleItem {
+extension TitleItem {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<TItleItem> {
-        return NSFetchRequest<TItleItem>(entityName: "TItleItem")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TitleItem> {
+        return NSFetchRequest<TitleItem>(entityName: "TitleItem")
     }
 
     @NSManaged public var id: Int64
@@ -28,6 +28,6 @@ extension TItleItem {
 
 }
 
-extension TItleItem : Identifiable {
+extension TitleItem : Identifiable {
 
 }

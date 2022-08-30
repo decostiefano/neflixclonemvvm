@@ -25,7 +25,7 @@ class SearchResultsViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.cellID)
         return collectionView
     }()
     
@@ -60,7 +60,7 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.cellID, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -76,3 +76,5 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         
         let title = titles [indexPath.row]
         let titleName = title.original_title ?? ""
+    }
+}

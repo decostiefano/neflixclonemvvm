@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     
     let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top Rated"]
     let viewModels = ViewModels()
-    let titleItem = TItleItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()

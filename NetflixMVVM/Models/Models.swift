@@ -7,7 +7,6 @@
 
 import Foundation
 
-//MARK: Title Model
 struct TitleViewModel {
     let titleName: String
     let posterURL: String

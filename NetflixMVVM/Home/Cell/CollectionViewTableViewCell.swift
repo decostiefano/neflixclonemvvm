@@ -9,7 +9,7 @@ import UIKit
 
 class CollectionViewTableViewCell: UITableViewCell {
     static let cellID = "cellID"
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -35,6 +35,4 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         cell.backgroundColor = .blue
         return cell
     }
-    
-    
 }

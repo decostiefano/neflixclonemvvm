@@ -23,7 +23,13 @@ class HeroHeaderUIView: UIView {
     private func setupButton() {
         playButton.layer.borderColor = UIColor.white.cgColor
         playButton.layer.borderWidth = 1
-        playButton.layer.cornerRadius = 10
+        playButton.layer.cornerRadius = 5
+        playButton.backgroundColor = .black.withAlphaComponent(0.3)
+        
+        downloadButton.layer.borderColor = UIColor.white.cgColor
+        downloadButton.layer.borderWidth = 1
+        downloadButton.layer.cornerRadius = 5
+        downloadButton.backgroundColor = .black.withAlphaComponent(0.3)
     }
     
     public func configure(with model: TitleViewModel) {

@@ -7,15 +7,16 @@
 
 import UIKit
 
+#warning("Isi yang kosong")
 class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let home = UINavigationController(rootViewController: HomeViewController()) // Home page
-        let coming = UINavigationController(rootViewController: ViewController())
-        let search = UINavigationController(rootViewController: ViewController())
-        let download = UINavigationController(rootViewController: ViewController())
+        let home = UINavigationController(rootViewController: HomeViewController())
+        let coming = UINavigationController(rootViewController: UpcomingViewController())
+        let search = UINavigationController(rootViewController: SearchViewController())
+        let download = UINavigationController(rootViewController: DownloadsViewController()) 
 
         
         home.tabBarItem.image = UIImage(systemName: "house")

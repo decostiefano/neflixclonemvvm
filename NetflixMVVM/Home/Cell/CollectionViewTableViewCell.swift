@@ -12,6 +12,8 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private var titles: [Title] = [Title]()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollection()
@@ -23,16 +25,27 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.register(UINib(nibName: String(describing: TitleCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: TitleCollectionViewCell.cellID)
     }
     
+    public func configure(with titles: [Title]) {
+        self.titles = titles
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.cellID, for: indexPath) as! TitleCollectionViewCell
-        cell.backgroundColor = .blue
+        guard let model = titles[indexPath.row].poster_path else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: model)
+        
         return cell
     }
 }

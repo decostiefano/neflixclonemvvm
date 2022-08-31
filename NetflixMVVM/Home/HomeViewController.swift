@@ -10,6 +10,8 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    private var randomTrendingMovies: Title?
+    let headerView = HeroHeaderUIView().loadNib() as! HeroHeaderUIView
     let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top Rated"]
     let viewModels = ViewModels()
     
@@ -18,7 +20,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupTable()
         setupNavBar()
-        setupHeaderTable()
+        configureHeroHeaderView()
         
     }
     
@@ -27,7 +29,9 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: String(describing: CollectionViewTableViewCell.self), bundle: nil), forCellReuseIdentifier: CollectionViewTableViewCell.cellID)
-        tableView.rowHeight = UITableView.automaticDimension // height / tinggi dinamis
+        tableView.rowHeight = 200 // height / tinggi dinamis
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 500)
+        tableView.tableHeaderView = headerView
         
     }
     
@@ -43,12 +47,14 @@ class HomeViewController: UIViewController {
         ]
         navigationController?.navigationBar.tintColor = .white
     }
-   
-    //MARK: Setup Header table
-    private func setupHeaderTable() {
-        let header = HeroHeaderUIView().loadNib() as! HeroHeaderUIView
-        tableView.tableHeaderView = header
+    
+    private func configureHeroHeaderView() {
         
+        viewModels.configureHeroHeaderView { title, titleViewModel in
+            guard let vm = titleViewModel else {return}
+            self.randomTrendingMovies = title
+            self.headerView.configure(with: vm)
+        }
     }
 }
 
@@ -75,19 +81,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
-            cell.collectionView.backgroundColor = .clear
+            viewModels.getTrendingMovie { titles in
+                cell.configure(with: titles)
+            }
             
         case Sections.TrendingTv.rawValue:
-            cell.collectionView.backgroundColor = .clear
+            viewModels.getTrendingTvs { titles in
+                cell.configure(with: titles)
+            }
             
         case Sections.Popular.rawValue:
-            cell.collectionView.backgroundColor = .clear
+            viewModels.getPopular { titles in
+                cell.configure(with: titles)
+            }
         
         case Sections.Upcoming.rawValue:
-            cell.collectionView.backgroundColor = .clear
+            viewModels.getUpcomingMovies { titles in
+                cell.configure(with: titles)
+            }
             
         case Sections.TopRated.rawValue:
-            cell.collectionView.backgroundColor = .clear
+            viewModels.getTopRater { titles in
+                cell.configure(with: titles)
+            }
         default:
             cell.collectionView.backgroundColor = .clear
             

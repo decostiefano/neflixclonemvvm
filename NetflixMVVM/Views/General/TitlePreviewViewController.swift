@@ -2,11 +2,13 @@
 //  TitlePreviewViewController.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 26/08/22.
+//  Created by Jerry Purnama Maulid on 31/08/22.
 //
 
 import UIKit
 import WebKit
+
+#warning("salah pakai  XIB  tidak full code")
 
 class TitlePreviewViewController: UIViewController {
     
@@ -109,5 +111,3 @@ class TitlePreviewViewController: UIViewController {
 
     }
 }
-    
-    

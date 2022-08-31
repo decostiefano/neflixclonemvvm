@@ -2,7 +2,7 @@
 //  TitlePreviewViewController.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 31/08/22.
+//  Created by Deco Stiefano on 31/08/22.
 //
 
 import UIKit

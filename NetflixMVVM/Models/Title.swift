@@ -2,7 +2,7 @@
 //  Title.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 25/08/22.
+//  Created by Deco Stiefano on 25/08/22.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  DatePersistenceManager.swift
 //  Netflix Clone
 //
-//  Created by Jerry Purnama Maulid on 17/08/22.
+//  Created by Deco Stiefano on 17/08/22.
 //
 
 import Foundation

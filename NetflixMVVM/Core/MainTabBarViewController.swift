@@ -2,7 +2,7 @@
 //  MainTabBarViewController.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 22/08/22.
+//  Created by Deco Stiefano on 22/08/22.
 //
 
 import UIKit

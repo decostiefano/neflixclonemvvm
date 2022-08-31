@@ -2,7 +2,7 @@
 //  TitleItem+CoreDataProperties.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 30/08/22.
+//  Created by Deco Stiefano on 30/08/22.
 //
 //
 

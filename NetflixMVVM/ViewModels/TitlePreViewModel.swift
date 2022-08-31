@@ -2,7 +2,7 @@
 //  TitlePreViewModel.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 26/08/22.
+//  Created by Deco Stiefano on 26/08/22.
 //
 
 import Foundation

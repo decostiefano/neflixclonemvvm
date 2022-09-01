@@ -29,8 +29,8 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: String(describing: CollectionViewTableViewCell.self), bundle: nil), forCellReuseIdentifier: CollectionViewTableViewCell.cellID)
-        tableView.rowHeight = 200 // height / tinggi dinamis
-        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 500)
+        tableView.rowHeight = 350 // height / tinggi dinamis
+        headerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 600)
         tableView.tableHeaderView = headerView
         
     }

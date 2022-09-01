@@ -8,42 +8,12 @@
 import UIKit
 import WebKit
 
-#warning("salah pakai  XIB  tidak full code")
-
 class TitlePreviewViewController: UIViewController {
-    
-    
-    private let titleLabel: UILabel = {
-        
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 22, weight: .bold)
-        label.text = "Harry potter"
-        return label
-    }()
-    
-    private let overviewLabel: UILabel = {
-        
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.text = "This is the best movie ever to watch as a kid!"
-        return label
-    }()
-    
-    private let downloadButton: UIButton = {
-       
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
-        button.setTitle("Download", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
-        
-        return button
-    }()
+ 
+    @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var overviewLabel: UILabel?
+    @IBOutlet weak var downloadButon: UIButton!
     
     private let webView: WKWebView =  {
        let webView = WKWebView()
@@ -51,63 +21,36 @@ class TitlePreviewViewController: UIViewController {
         return webView
         
     }()
-
+    
+    var model: TitlePreviewViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Preview Movie"
         view.backgroundColor = .systemBackground
-        view.addSubview(webView)
-        view.addSubview(titleLabel)
-        view.addSubview(overviewLabel)
-        view.addSubview(downloadButton)
-        
-        configureConstraints()
-        
+
+        setupWebView()
+        configure(with: model)
     }
     
     
-    func configureConstraints() {
-        let webViewConstraints = [
-            webView.topAnchor.constraint(equalTo: view.topAnchor,constant: 50   ),
-            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.heightAnchor.constraint(equalToConstant: 300)
-        ]
-        
-        let titleLabelConstraints = [
-            titleLabel.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-        ]
-        
-        let overviewLabelConstraint = [
-            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
-            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ]
-        
-        let downloadButtonConstraint = [
-            downloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor ),
-            downloadButton.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor,constant: 25),
-            downloadButton.widthAnchor.constraint(equalToConstant: 140),
-            downloadButton.heightAnchor.constraint(equalToConstant: 40)
-        ]
-        
-        NSLayoutConstraint.activate(webViewConstraints)
-        NSLayoutConstraint.activate(titleLabelConstraints)
-        NSLayoutConstraint.activate(overviewLabelConstraint)
-        NSLayoutConstraint.activate(downloadButtonConstraint)
-        
+    private func setupWebView() {
+        downloadButon.layer.cornerRadius = 5
+        webView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: subView.frame.height)
+        subView.addSubview(webView)
     }
     
-    
-    func configure(with model: TitlePreviewViewModel) {
-        titleLabel.text = model.title
-        overviewLabel.text = model.titleOverview
-        
+    func configure(with bindingModel: TitlePreviewViewModel?) {
+        guard let model = bindingModel else {
+            return
+        }
         guard let url = URL(string: "https://www.youtube.com/embed/\(model.youtubeView.id.videoId)") else {
             return
         }
-                
+        
+        titleLabel?.text = model.title
+        overviewLabel?.text = model.titleOverview
         webView.load(URLRequest(url: url))
-
     }
+    
 }

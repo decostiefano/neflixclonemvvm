@@ -6,50 +6,49 @@
 //
 
 import UIKit
-#warning("salah pakai XIB tidak full code")
+
 
 protocol SearchResultsViewControllerDelegate: AnyObject {
     func SearchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel)
 }
 
 class SearchResultsViewController: UIViewController {
+    @IBOutlet weak var searchResultsCollectionView: UICollectionView!
     
     
     public var titles: [Title] = [Title]()
     
     public weak var delegate: SearchResultsViewControllerDelegate?
-    
-    public let searchResultsCollectionView: UICollectionView = { // ganti
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: 200)
-        layout.minimumInteritemSpacing = 0
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.cellID)
-        return collectionView
-    }() //
-    
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        view.addSubview(searchResultsCollectionView) // hapus
-        
+        setupCollection()
+
+    }
+    
+    private func setupCollection() {
         
         searchResultsCollectionView.delegate = self
         searchResultsCollectionView.dataSource = self
+        searchResultsCollectionView.register(UINib(nibName: String(describing: TitleCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: TitleCollectionViewCell.cellID)
+        
     }
     
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        searchResultsCollectionView.frame = view.bounds // hapus
+    private func fetchDiscoverMovie(title: Title) {
+        let titleName = title.original_title ?? ""
+        APICaller.shared.getMovie(with: titleName) { [weak self]result in
+            switch result {
+            case .success(let videoElement):
+                    self?.delegate?.SearchResultsViewControllerDidTapItem(TitlePreviewViewModel(title: title.original_title ?? "", youtubeView: videoElement, titleOverview: title.overview ?? ""))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-    
     
 }
 
@@ -76,7 +75,12 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let title = titles [indexPath.row]
-        let titleName = title.original_title ?? ""
+        fetchDiscoverMovie(title: title)
     }
 }
 
+extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: 200)
+    }
+}

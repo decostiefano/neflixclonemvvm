@@ -7,7 +7,6 @@
 
 import UIKit
 
-#warning("Isi yang kosong")
 class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {

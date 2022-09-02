@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // persistent container
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "NetflixCloneModel")
+        let container = NSPersistentContainer(name: "NetflixMVVM")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

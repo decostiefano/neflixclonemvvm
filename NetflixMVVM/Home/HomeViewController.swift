@@ -78,6 +78,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.cellID, for: indexPath) as! CollectionViewTableViewCell
         
+        cell.delegate = self
         
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
@@ -133,6 +134,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.text = header.textLabel?.text
     }
     
+}
+
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+            vc.model = viewModel
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
 }
 
 

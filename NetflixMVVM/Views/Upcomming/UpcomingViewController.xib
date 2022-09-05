@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DownloadsViewController" customModule="NetflixMVVM" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpcomingViewController" customModule="NetflixMVVM" customModuleProvider="target">
             <connections>
-                <outlet property="downloadTable" destination="9HG-CX-Mcd" id="POn-RU-JeG"/>
+                <outlet property="upcomingTable" destination="072-DA-zsm" id="Jd3-gW-Gfk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9HG-CX-Mcd">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="072-DA-zsm">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -27,10 +27,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9HG-CX-Mcd" secondAttribute="trailing" id="9Ft-84-XI6"/>
-                <constraint firstItem="9HG-CX-Mcd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GfZ-HS-ZNE"/>
-                <constraint firstItem="9HG-CX-Mcd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Olt-M3-sdj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9HG-CX-Mcd" secondAttribute="bottom" id="RIE-Dv-5Em"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="072-DA-zsm" secondAttribute="trailing" id="CWU-qh-Vpl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="072-DA-zsm" secondAttribute="bottom" id="EKp-t8-cRv"/>
+                <constraint firstItem="072-DA-zsm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Vv5-sv-K1N"/>
+                <constraint firstItem="072-DA-zsm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="trJ-3K-eqS"/>
             </constraints>
             <point key="canvasLocation" x="139" y="100"/>
         </view>

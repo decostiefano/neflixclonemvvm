@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 19/08/22.
+//  Created by Deco Stiefano on 19/08/22.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  MainTabBarViewController.swift
 //  NetflixMVVM
 //
-//  Created by Jerry Purnama Maulid on 22/08/22.
+//  Created by Deco Stiefano on 22/08/22.
 //
 
 import UIKit
@@ -12,10 +12,10 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let home = UINavigationController(rootViewController: ViewController()) // Home page
-        let coming = UINavigationController(rootViewController: ViewController())
-        let search = UINavigationController(rootViewController: ViewController())
-        let download = UINavigationController(rootViewController: ViewController())
+        let home = UINavigationController(rootViewController: HomeViewController())
+        let coming = UINavigationController(rootViewController: UpcomingViewController())
+        let search = UINavigationController(rootViewController: SearchViewController())
+        let download = UINavigationController(rootViewController: DownloadsViewController()) 
 
         
         home.tabBarItem.image = UIImage(systemName: "house")
